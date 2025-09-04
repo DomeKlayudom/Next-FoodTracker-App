@@ -42,9 +42,6 @@ const Page = () => {
 
   return (
     <>
-      <Head>
-        <title>Register - Food Tracker</title>
-      </Head>
 
       {/* Main container with a vibrant background */}
       <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-teal-400 to-blue-600">

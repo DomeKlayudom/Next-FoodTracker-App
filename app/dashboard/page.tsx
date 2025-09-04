@@ -61,10 +61,6 @@ const DashboardPage = () => {
 
     return (
         <>
-            <Head>
-                <title>Dashboard - Food Tracker</title>
-            </Head>
-
             <div className="min-h-screen p-4 bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400">
 
                 {/* Header and Controls */}

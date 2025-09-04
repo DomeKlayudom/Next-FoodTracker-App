@@ -27,9 +27,6 @@ const LoginPage = () => {
 
     return (
         <>
-            <Head>
-                <title>Login - Food Tracker</title>
-            </Head>
 
             {/* Main container with a vibrant background. */}
             <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-green-400 to-lime-600">
