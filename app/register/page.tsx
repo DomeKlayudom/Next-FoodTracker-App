@@ -73,7 +73,7 @@ const Page = () => {
                 name="fullName"
                 id="fullName"
                 required
-                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm bg-gray-400 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm  focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                 value={formData.fullName}
                 onChange={handleChange}
               />
@@ -87,7 +87,7 @@ const Page = () => {
                 name="email"
                 id="email"
                 required
-                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm bg-gray-400 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm  focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                 value={formData.email}
                 onChange={handleChange}
               />
@@ -101,7 +101,7 @@ const Page = () => {
                 name="password"
                 id="password"
                 required
-                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm bg-gray-400 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm  focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -113,7 +113,7 @@ const Page = () => {
               <select
                 name="gender"
                 id="gender"
-                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm bg-gray-400 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm  focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                 value={formData.gender}
                 onChange={handleChange}
               >
@@ -143,7 +143,7 @@ const Page = () => {
               {previewImage && (
                 <div className="mt-4">
                   <p className="text-sm text-gray-600 mb-2">ตัวอย่างรูป:</p>
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 text-gray-900">
                     <Image
                       src={previewImage}
                       alt="Profile Preview"
@@ -168,7 +168,7 @@ const Page = () => {
           {/* Login Link */}
           <p className="mt-8 text-center text-sm text-gray-600">
             Already have an account?{' '}
-            <Link href="/">Login here</Link>
+            <Link href="/login">Login here</Link>
           </p>
         </div>
       </div>
