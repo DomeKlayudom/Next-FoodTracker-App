@@ -22,7 +22,7 @@ const LoginPage = () => {
         e.preventDefault();
         console.log('Login Data Submitted:', formData);
         // Here, you would typically send the data to your backend API for authentication.
-        router.push('/');
+        router.push('/dashboard');
     };
 
     return (
