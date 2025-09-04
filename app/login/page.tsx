@@ -3,12 +3,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, ChangeEvent, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
+
+    const router = useRouter();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -19,6 +22,7 @@ const LoginPage = () => {
         e.preventDefault();
         console.log('Login Data Submitted:', formData);
         // Here, you would typically send the data to your backend API for authentication.
+        router.push('/');
     };
 
     return (
