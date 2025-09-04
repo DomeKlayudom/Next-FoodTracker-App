@@ -51,11 +51,11 @@ const Home = () => {
         */}
         <div className="mb-12">
           <Image
-            src= {banner}
+            src={banner}
             alt="Food Tracker logo"
-            width={400}
-            height={400}
-            className="rounded-full shadow-2xl transition-transform duration-300 hover:scale-105"
+            width={500}
+            height={500}
+            className="rounded-xl shadow-2xl transition-transform duration-300 hover:scale-105 border-4 border-white"
           />
         </div>
 
@@ -96,6 +96,9 @@ const Home = () => {
             </button>
           </Link>
         </div>
+        <footer className="mt-auto text-white text-sm opacity-80 pt-8">
+          Created by Dome Dome
+        </footer>
       </div>
     </>
   );
