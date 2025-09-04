@@ -1,6 +1,5 @@
 // pages/login.tsx
 "use client";
-import Head from 'next/head';
 import Link from 'next/link';
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';

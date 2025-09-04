@@ -1,32 +1,37 @@
 // pages/dashboard.tsx
 "use client";
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-// import banner from '../images/banner.png';
+import { useRouter } from 'next/navigation';
 
- const banner = "https://cdn.pixabay.com/photo/2016/07/11/03/23/chicken-rice-1508984_1280.jpg"
+
 // Mock Data for demonstration
+const banner = "https://cdn.pixabay.com/photo/2016/07/11/03/23/chicken-rice-1508984_1280.jpg"
 const mockFoods = [
-    { id: 1, date: '2023-10-26', image: banner , name: 'สเต็กไก่', meal: 'มื้อเย็น' },
-    { id: 2, date: '2023-10-26', image:  banner , name: 'สลัดผัก', meal: 'มื้อกลางวัน' },
-    { id: 3, date: '2023-10-25', image:  banner , name: 'ข้าวผัดกุ้ง', meal: 'มื้อเย็น' },
-    { id: 4, date: '2023-10-25', image:  banner , name: 'แซนวิชไส้กรอก', meal: 'มื้อเช้า' },
-    { id: 5, date: '2023-10-24', image:  banner , name: 'ซุปมิโซะ', meal: 'มื้อเย็น' },
-    { id: 6, date: '2023-10-24', image:  banner , name: 'พาสต้าคาโบนาร่า', meal: 'มื้อกลางวัน' },
-    { id: 7, date: '2023-10-23', image:  banner , name: 'แกงเขียวหวานไก่', meal: 'มื้อเย็น' },
-    { id: 8, date: '2023-10-23', image:  banner , name: 'โจ๊กหมู', meal: 'มื้อเช้า' },
-    { id: 9, date: '2023-10-22', image:  banner , name: 'ก๋วยเตี๋ยว', meal: 'มื้อกลางวัน' },
-    { id: 10, date: '2023-10-22', image:  banner , name: 'ข้าวขาหมู', meal: 'มื้อเย็น' },
-    { id: 11, date: '2023-10-21', image:  banner , name: 'ต้มยำกุ้ง', meal: 'มื้อเย็น' },
-    { id: 12, date: '2023-10-21', image:  banner , name: 'ไข่เจียว', meal: 'มื้อเช้า' },
+    { id: 1, date: '2023-10-26', image: banner, name: 'สเต็กไก่', meal: 'มื้อเย็น' },
+    { id: 2, date: '2023-10-26', image: banner, name: 'สลัดผัก', meal: 'มื้อกลางวัน' },
+    { id: 3, date: '2023-10-25', image: banner, name: 'ข้าวผัดกุ้ง', meal: 'มื้อเย็น' },
+    { id: 4, date: '2023-10-25', image: banner, name: 'แซนวิชไส้กรอก', meal: 'มื้อเช้า' },
+    { id: 5, date: '2023-10-24', image: banner, name: 'ซุปมิโซะ', meal: 'มื้อเย็น' },
+    { id: 6, date: '2023-10-24', image: banner, name: 'พาสต้าคาโบนาร่า', meal: 'มื้อกลางวัน' },
+    { id: 7, date: '2023-10-23', image: banner, name: 'แกงเขียวหวานไก่', meal: 'มื้อเย็น' },
+    { id: 8, date: '2023-10-23', image: banner, name: 'โจ๊กหมู', meal: 'มื้อเช้า' },
+    { id: 9, date: '2023-10-22', image: banner, name: 'ก๋วยเตี๋ยว', meal: 'มื้อกลางวัน' },
+    { id: 10, date: '2023-10-22', image: banner, name: 'ข้าวขาหมู', meal: 'มื้อเย็น' },
+    { id: 11, date: '2023-10-21', image: banner, name: 'ต้มยำกุ้ง', meal: 'มื้อเย็น' },
+    { id: 12, date: '2023-10-21', image: banner, name: 'ไข่เจียว', meal: 'มื้อเช้า' },
 ];
 
 const DashboardPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState('');
     const itemsPerPage = 5;
+
+    const router = useRouter();
+
+    // Mock User Data
+    const user = { fullName: 'สมชาย รักสุขภาพ' };
 
     // Filter and paginate the food data
     const filteredFoods = mockFoods.filter((food) =>
@@ -47,26 +52,47 @@ const DashboardPage = () => {
     };
 
     const handleDelete = (id: number) => {
-        // In a real app, you would call an API to delete the food item.
-        // For this mock data, we just log the action.
         console.log(`Deleting food item with ID: ${id}`);
         alert(`Deleting food item with ID: ${id}`);
     };
 
     const handleEdit = (id: number) => {
-        // In a real app, you would redirect to an edit page.
         console.log(`Editing food item with ID: ${id}`);
         alert(`Editing food item with ID: ${id}`);
+    };
+
+    const handleLogout = () => {
+        router.push('/');
+        // In a real application, this would clear the user's session/token and redirect to the login page.
+        // e.g., router.push('/login');
     };
 
     return (
         <>
             <div className="min-h-screen p-4 bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400">
 
-                {/* Header and Controls */}
+                {/* User Info, Logout & Profile Buttons */}
                 <div className="bg-white p-6 rounded-xl shadow-lg mb-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div className="text-gray-700 font-semibold text-lg text-center md:text-left">
+                        <span className="text-sm font-normal">Welcome,</span> {user.fullName}
+                    </div>
+                    <div className="flex space-x-4">
+                        <Link href="/profile">
+                            <button className="bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-200">
+                                Profile
+                            </button>
+                        </Link>
+                        <button
+                            onClick={handleLogout}
+                            className="bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-600 transition-colors duration-200"
+                        >
+                            Logout
+                        </button>
+                    </div>
+                </div>
 
-                    {/* Back button */}
+                {/* Main Controls: Back, Dashboard Title, Add Food */}
+                <div className="bg-white p-6 rounded-xl shadow-lg mb-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <Link href="/">
                         <button className="flex items-center text-gray-600 hover:text-gray-800 transition-colors duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -75,11 +101,9 @@ const DashboardPage = () => {
                             ย้อนกลับ
                         </button>
                     </Link>
-
                     <h1 className="text-3xl font-extrabold text-gray-900 text-center md:text-left">
                         Food Dashboard
                     </h1>
-
                     <Link href="/addfood">
                         <button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200">
                             + Add Food
